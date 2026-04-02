@@ -1,0 +1,528 @@
+/* ===========================================
+   MVMT LANDING PAGE - BEGINNER-FRIENDLY CSS
+   =========================================== */
+
+/* RESET & GENERAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===========================================
+   HEADER & NAVIGATION
+   =========================================== */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #999;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.search-btn,
+.signin-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.signin-btn {
+    color: #000;
+    font-weight: 500;
+}
+
+.signin-btn:hover {
+    color: #999;
+}
+
+/* ===========================================
+   PROMO BANNER
+   =========================================== */
+.promo-banner {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+.hero {
+    height: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ===========================================
+   BUTTONS (CTA & CARD BUTTONS)
+   =========================================== */
+.cta-btn,
+.card-btn {
+    padding: 12px 30px;
+    border: 2px solid #000;
+    background-color: transparent;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-btn:hover,
+.card-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.hero .cta-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+.hero .cta-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* ===========================================
+   CATEGORIES SECTION
+   =========================================== */
+.categories {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.categories h2,
+.products h2,
+.benefits h2,
+.about h2,
+.newsletter h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    height: 250px;
+    background-color: #e0e0e0;
+    background-size: cover;
+    background-position: center;
+}
+
+.watches-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.womens-image {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.eyewear-image {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.jewelry-image {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.category-card h3 {
+    font-size: 18px;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+.category-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.category-card .card-btn {
+    margin-bottom: 20px;
+}
+
+/* ===========================================
+   PRODUCTS SECTION
+   =========================================== */
+.products {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 300px;
+    background-color: #e0e0e0;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.product-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.product-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.product-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.product-4 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.product-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ===========================================
+   BENEFITS SECTION
+   =========================================== */
+.benefits {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.benefit-card {
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===========================================
+   ABOUT SECTION
+   =========================================== */
+.about {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* ===========================================
+   NEWSLETTER SECTION
+   =========================================== */
+.newsletter {
+    padding: 80px 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.newsletter h2 {
+    color: #fff;
+}
+
+.newsletter p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.newsletter-form .cta-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+.newsletter-form .cta-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN (MOBILE)
+   =========================================== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .categories h2,
+    .products h2,
+    .benefits h2,
+    .about h2,
+    .newsletter h2 {
+        font-size: 28px;
+    }
+
+    .categories-grid,
+    .products-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form .cta-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        height: 350px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+}
