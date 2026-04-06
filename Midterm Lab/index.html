@@ -95,38 +95,76 @@
     <section class="products">
         <div class="container">
             <h2>New Arrivals</h2>
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image product-1"></div>
-                    <h3>Legacy Slim Auto</h3>
-                    <p>Your ultimate office to night out watch</p>
-                    <button class="card-btn">Shop Now</button>
+            
+            <!-- Carousel Container -->
+            <div class="carousel-wrapper">
+                <!-- Carousel Slide Counter -->
+                <div class="carousel-counter">
+                    <span id="slideCounter">Showing <span id="currentSlide">1</span> of <span id="totalSlides">6</span></span>
                 </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image product-2"></div>
-                    <h3>Odyssey II Automatic</h3>
-                    <p>Sophistication in stealth mode</p>
-                    <button class="card-btn">Shop Now</button>
+                <!-- Previous Button -->
+                <button class="carousel-btn carousel-prev" id="prevBtn" aria-label="Previous slide">
+                    <span>‹</span>
+                </button>
+
+                <!-- Carousel Track -->
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Product 1 -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Legacy+Slim+Auto'); background-size: cover; background-position: center;"></div>
+                            <h3>Legacy Slim Auto</h3>
+                            <p>Your ultimate office to night out watch</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Odyssey+II+Automatic'); background-size: cover; background-position: center;"></div>
+                            <h3>Odyssey II Automatic</h3>
+                            <p>Sophistication in stealth mode</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Field+Watch'); background-size: cover; background-position: center;"></div>
+                            <h3>Field Watch</h3>
+                            <p>Adventure awaits</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Dress+Watch'); background-size: cover; background-position: center;"></div>
+                            <h3>Dress Watch</h3>
+                            <p>Elegance personified</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+
+                        <!-- Product 5 - NEW -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Chronograph+Pro'); background-size: cover; background-position: center;"></div>
+                            <h3>Chronograph Pro</h3>
+                            <p>Professional precision timing</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+
+                        <!-- Product 6 - NEW -->
+                        <div class="product-card carousel-slide">
+                            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Sport+Edition'); background-size: cover; background-position: center;"></div>
+                            <h3>Sport Edition</h3>
+                            <p>Built for active lifestyles</p>
+                            <button class="card-btn">Shop Now</button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image product-3"></div>
-                    <h3>Field Watch</h3>
-                    <p>Adventure awaits</p>
-                    <button class="card-btn">Shop Now</button>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="product-image product-4"></div>
-                    <h3>Dress Watch</h3>
-                    <p>Elegance personified</p>
-                    <button class="card-btn">Shop Now</button>
-                </div>
+                <!-- Next Button -->
+                <button class="carousel-btn carousel-next" id="nextBtn" aria-label="Next slide">
+                    <span>›</span>
+                </button>
             </div>
         </div>
     </section>
