@@ -269,22 +269,23 @@ body {
     background-color: #e0e0e0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .watches-image {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #667eea;
 }
 
 .womens-image {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background-color: #f093fb;
 }
 
 .eyewear-image {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background-color: #4facfe;
 }
 
 .jewelry-image {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background-color: #fa709a;
 }
 
 .category-card h3 {
@@ -379,26 +380,37 @@ body {
     background-color: #e0e0e0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     margin-bottom: 15px;
     border-radius: 3px;
     cursor: pointer;
     display: block;
+    min-height: 250px;
 }
 
-.product-1 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Fallback colors for products (if images fail to load) */
+.carousel-slide:nth-child(1) .product-image {
+    background-color: #667eea;
 }
 
-.product-2 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.carousel-slide:nth-child(2) .product-image {
+    background-color: #f093fb;
 }
 
-.product-3 {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.carousel-slide:nth-child(3) .product-image {
+    background-color: #4facfe;
 }
 
-.product-4 {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+.carousel-slide:nth-child(4) .product-image {
+    background-color: #fa709a;
+}
+
+.carousel-slide:nth-child(5) .product-image {
+    background-color: #43e97b;
+}
+
+.carousel-slide:nth-child(6) .product-image {
+    background-color: #a8edea;
 }
 
 .product-card h3 {
