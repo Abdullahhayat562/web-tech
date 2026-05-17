@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MVMT</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include("../partials/header", { activePage: "login" }) %>
+    <%- include("../partials/flash") %>
+
+    <main class="auth-page">
+        <section class="auth-card">
+            <p class="eyebrow">Customer Access</p>
+            <h1>Login</h1>
+            <form class="auth-form" method="POST" action="/login">
+                <div class="auth-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" value="<%= formData.email || '' %>" required>
+                </div>
+                <div class="auth-field">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" minlength="6" required>
+                </div>
+                <button class="cta-btn" type="submit">Login</button>
+            </form>
+            <p class="auth-switch">New here? <a href="/register">Create an account</a></p>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

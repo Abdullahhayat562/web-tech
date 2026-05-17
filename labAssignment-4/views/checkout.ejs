@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MVMT</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include("partials/header", { activePage: "checkout" }) %>
+    <%- include("partials/flash") %>
+
+    <main class="checkout-page">
+        <section class="checkout-panel">
+            <p class="eyebrow">Protected Route</p>
+            <h1>Checkout</h1>
+            <p>Your secure checkout is ready, <%= currentUser.name %>.</p>
+            <a class="cta-btn" href="/products">Keep Shopping</a>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

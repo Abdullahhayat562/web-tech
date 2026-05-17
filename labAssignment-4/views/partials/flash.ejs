@@ -1,0 +1,12 @@
+<% if ((success && success.length) || (error && error.length)) { %>
+    <section class="flash-wrap">
+        <div class="container">
+            <% success.forEach(function(message) { %>
+                <div class="flash-message flash-success"><%= message %></div>
+            <% }) %>
+            <% error.forEach(function(message) { %>
+                <div class="flash-message flash-error"><%= message %></div>
+            <% }) %>
+        </div>
+    </section>
+<% } %>
