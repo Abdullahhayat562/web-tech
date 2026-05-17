@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= formTitle %> - MVMT Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="admin-body">
+    <main class="admin-shell">
+        <aside class="admin-sidebar">
+            <a class="admin-logo" href="/admin">MVMT Admin</a>
+            <nav class="admin-nav">
+                <a href="/admin/products">Products</a>
+                <a class="<%= formTitle === 'Add Product' ? 'active' : '' %>" href="/admin/products/new">Add Product</a>
+                <a href="/products">Storefront</a>
+                <a href="/">Home</a>
+                <form class="admin-logout-form" method="POST" action="/logout">
+                    <button type="submit">Logout</button>
+                </form>
+            </nav>
+        </aside>
+
+        <section class="admin-main">
+            <%- include("../partials/flash") %>
+            <div class="admin-page-header">
+                <div>
+                    <p class="eyebrow">Inventory</p>
+                    <h1><%= formTitle %></h1>
+                </div>
+                <a class="admin-secondary-btn" href="/admin/products">Back to Dashboard</a>
+            </div>
+
+            <% if (errors.length > 0) { %>
+                <div class="admin-alert">
+                    <% errors.forEach(function(error) { %>
+                        <p><%= error %></p>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <form class="admin-form-card" method="POST" action="<%= formAction %>" enctype="multipart/form-data">
+                <% if (product.imageUrl) { %>
+                    <input type="hidden" name="existingImage" value="<%= product.imageUrl %>">
+                <% } %>
+
+                <div class="admin-form-grid">
+                    <div class="admin-field">
+                        <label for="name">Product Name</label>
+                        <input id="name" name="name" type="text" value="<%= product.name || '' %>" required>
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="category">Category</label>
+                        <input id="category" name="category" type="text" value="<%= product.category || '' %>" required>
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="price">Price</label>
+                        <input id="price" name="price" type="number" min="0" step="0.01" value="<%= product.price ?? '' %>" required>
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="rating">Rating</label>
+                        <input id="rating" name="rating" type="number" min="0" max="5" step="0.1" value="<%= product.rating ?? '' %>" required>
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="stock">Stock</label>
+                        <input id="stock" name="stock" type="number" min="0" step="1" value="<%= product.stock ?? '' %>" required>
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="image">Product Image</label>
+                        <input id="image" name="image" type="file" accept="image/*" <%= requireImage && !product.imageUrl ? "required" : "" %>>
+                    </div>
+                </div>
+
+                <% if (product.imageUrl) { %>
+                    <div class="admin-current-image">
+                        <span>Current Image</span>
+                        <img src="<%= product.imageUrl %>" alt="<%= product.name || 'Product image' %>">
+                    </div>
+                <% } %>
+
+                <div class="admin-form-actions">
+                    <button class="admin-primary-btn" type="submit"><%= submitLabel %></button>
+                    <a class="admin-secondary-btn" href="/admin/products">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

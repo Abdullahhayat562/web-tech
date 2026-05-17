@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MVMT</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include("../partials/header", { activePage: "profile" }) %>
+    <%- include("../partials/flash") %>
+
+    <main class="profile-page">
+        <section class="profile-panel">
+            <p class="eyebrow">Signed In</p>
+            <h1><%= currentUser.name %></h1>
+            <dl class="profile-list">
+                <div>
+                    <dt>Email</dt>
+                    <dd><%= currentUser.email %></dd>
+                </div>
+                <div>
+                    <dt>Role</dt>
+                    <dd><%= currentUser.role %></dd>
+                </div>
+            </dl>
+            <a class="cta-btn" href="/checkout">Continue to Checkout</a>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
