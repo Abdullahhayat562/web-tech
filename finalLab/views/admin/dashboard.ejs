@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MVMT</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="admin-body">
+    <main class="admin-shell">
+        <aside class="admin-sidebar">
+            <a class="admin-logo" href="/admin">MVMT Admin</a>
+            <nav class="admin-nav">
+                <a class="active" href="/admin/products">Products</a>
+                <a href="/admin/products/new">Add Product</a>
+                <a href="/products">Storefront</a>
+                <a href="/">Home</a>
+                <form class="admin-logout-form" method="POST" action="/logout">
+                    <button type="submit">Logout</button>
+                </form>
+            </nav>
+        </aside>
+
+        <section class="admin-main">
+            <%- include("../partials/flash") %>
+            <div class="admin-page-header">
+                <div>
+                    <p class="eyebrow">Lab Assignment 4</p>
+                    <h1>Product Management</h1>
+                </div>
+                <a class="admin-primary-btn" href="/admin/products/new">Add Product</a>
+            </div>
+
+            <div class="admin-stats-grid">
+                <div class="admin-stat">
+                    <span>Total Products</span>
+                    <strong><%= stats.totalProducts %></strong>
+                </div>
+                <div class="admin-stat">
+                    <span>Total Stock</span>
+                    <strong><%= stats.totalStock %></strong>
+                </div>
+                <div class="admin-stat">
+                    <span>Categories</span>
+                    <strong><%= stats.totalCategories %></strong>
+                </div>
+                <div class="admin-stat">
+                    <span>Inventory Value</span>
+                    <strong>$<%= stats.totalValue.toFixed(2) %></strong>
+                </div>
+                <div class="admin-stat">
+                    <span>On Sale</span>
+                    <strong><%= stats.onSaleProducts %></strong>
+                </div>
+            </div>
+
+            <div class="admin-table-card">
+                <div class="admin-table-header">
+                    <h2>All Products</h2>
+                    <span><%= products.length %> item<%= products.length === 1 ? "" : "s" %></span>
+                </div>
+
+                <% if (products.length > 0) { %>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Sale</th>
+                                    <th>Rating</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% products.forEach(function(product) { %>
+                                    <tr>
+                                        <td>
+                                            <div class="admin-product-cell">
+                                                <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                                <span><%= product.name %></span>
+                                            </div>
+                                        </td>
+                                        <td><%= product.category %></td>
+                                        <td>$<%= product.price.toFixed(2) %></td>
+                                        <td>
+                                            <% if (product.isOnSale) { %>
+                                                <span class="sale-badge">On Sale</span>
+                                            <% } else { %>
+                                                <span class="muted-status">Regular</span>
+                                            <% } %>
+                                        </td>
+                                        <td><%= product.rating.toFixed(1) %>/5</td>
+                                        <td><%= product.stock %></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a class="admin-secondary-btn" href="/admin/products/<%= product._id %>/edit">Edit</a>
+                                                <form
+                                                    method="POST"
+                                                    action="/admin/products/<%= product._id %>/delete"
+                                                    onsubmit="return confirm('Delete this product? This cannot be undone.');"
+                                                >
+                                                    <button class="admin-danger-btn" type="submit">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% } else { %>
+                    <div class="admin-empty">
+                        <h2>No products yet</h2>
+                        <p>Add your first product to begin managing the catalog.</p>
+                        <a class="admin-primary-btn" href="/admin/products/new">Add Product</a>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

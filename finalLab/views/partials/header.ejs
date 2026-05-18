@@ -1,0 +1,36 @@
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <a class="logo" href="/">MVMT</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <nav class="nav" id="navMenu">
+                <a class="<%= activePage === 'home' ? 'active' : '' %>" href="/">Home</a>
+                <a class="<%= activePage === 'products' ? 'active' : '' %>" href="/products">Products</a>
+                <a class="<%= activePage === 'onsale' ? 'active' : '' %>" href="/onsale-products">On Sale</a>
+                <a class="<%= activePage === 'checkout' ? 'active' : '' %>" href="/checkout">Checkout</a>
+                <a class="<%= activePage === 'contact' ? 'active' : '' %>" href="/contact-us">Contact</a>
+                <% if (currentUser && currentUser.role === "admin") { %>
+                    <a href="/admin">Admin</a>
+                <% } %>
+            </nav>
+
+            <div class="header-actions">
+                <% if (currentUser) { %>
+                    <a class="signin-btn" href="/profile">My Profile</a>
+                    <form class="logout-form" method="POST" action="/logout">
+                        <button class="signin-btn" type="submit">Logout</button>
+                    </form>
+                <% } else { %>
+                    <a class="signin-btn" href="/login">Login</a>
+                    <a class="signin-btn" href="/register">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,70 @@
+<section class="promo-banner">
+    <div class="container">
+        <p>On-Sale Products | 10 products per page</p>
+    </div>
+</section>
+
+<main class="catalog-page onsale-page">
+    <div class="container">
+        <div class="catalog-heading">
+            <div>
+                <p class="eyebrow">Promotions</p>
+                <h1>On-Sale Products</h1>
+            </div>
+            <p><%= products.length %> deal<%= products.length === 1 ? "" : "s" %> available</p>
+        </div>
+
+        <% if (products.length > 0) { %>
+            <div id="product-list" class="catalog-grid">
+                <%
+                    const fallbackImages = {
+                        Accessories: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+                        Electronics: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+                        Eyewear: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+                        Fashion: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+                        Home: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
+                        Jewelry: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+                        Watches: "https://images.unsplash.com/photo-1523275335684-37898b6baf30e?auto=format&fit=crop&w=800&q=80",
+                    };
+                %>
+                <% products.forEach(function(product) { %>
+                    <article class="catalog-card onsale-product-card">
+                        <div class="onsale-image-wrap">
+                            <img
+                                class="catalog-image"
+                                src="<%= product.imageUrl || fallbackImages[product.category] || fallbackImages.Watches %>"
+                                alt="<%= product.name %>"
+                                loading="lazy"
+                            >
+                            <span class="sale-badge onsale-card-badge">On Sale</span>
+                        </div>
+                        <div class="catalog-card-body">
+                            <div class="catalog-card-top">
+                                <span><%= product.category %></span>
+                                <strong>$<%= Number(product.price).toFixed(2) %></strong>
+                            </div>
+                            <h2><%= product.name %></h2>
+                            <div class="product-meta">
+                                <span>Rating <%= Number(product.rating).toFixed(1) %>/5</span>
+                                <span><%= product.stock %> in stock</span>
+                            </div>
+                            <button class="card-btn" type="button">Add to Cart</button>
+                        </div>
+                    </article>
+                <% }) %>
+            </div>
+
+            <nav class="pagination onsale-pagination" aria-label="On-sale product pagination">
+                <button id="prevPage" class="pagination-btn" type="button">Previous</button>
+                <span id="pageIndicator" class="active" aria-live="polite">Page 1 of 1</span>
+                <button id="nextPage" class="pagination-btn" type="button">Next</button>
+            </nav>
+        <% } else { %>
+            <div class="empty-state">
+                <h2>No on-sale products right now</h2>
+                <p>Check the full catalog or mark products as on sale from the admin dashboard.</p>
+                <a class="cta-btn" href="/products">View All Products</a>
+            </div>
+        <% } %>
+    </div>
+</main>
